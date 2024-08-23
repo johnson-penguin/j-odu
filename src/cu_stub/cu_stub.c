@@ -378,7 +378,7 @@ uint8_t startDlData()
    uint32_t duId;
    uint8_t ret = ROK;
    uint8_t cnt = 0;
-   int32_t totalNumOfTestFlow = 200; 
+   int32_t totalNumOfTestFlow = 1; 
    EgtpTeIdCb *teidCb = NULLP;
    
    while(totalNumOfTestFlow)
@@ -403,7 +403,7 @@ uint8_t startDlData()
                   }
                   /* TODO : sleep(1) will be removed later once we will be able to
                    * support the continuous data pack transfer */
-                  sleep(1);
+                  //sleep(1);
                   cnt++;
                }
             }
@@ -478,8 +478,11 @@ void *cuConsoleHandler(void *args)
           * NUM_TUNNEL_TO_PUMP_DATA = 9, NUM_DL_PACKETS = 1.
           * totalDataPacket = totalNumOfTestFlow * NUM_TUNNEL_TO_PUMP_DATA * NUM_DL_PACKETS 
           * totalDataPacket = [500*9*1] */
-         
-         startDlData();
+         while(1)
+         {
+            startDlData();
+            usleep(100000); /* Generating Time Interval */
+         }
 #endif
          continue;
       } 

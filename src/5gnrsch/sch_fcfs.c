@@ -1172,6 +1172,7 @@ void schFcfsScheduleSlot(SchCellCb *cell, SlotTimingInfo *slotInd, Inst schInst)
       {
          ueId = *(uint8_t *)(pendingUeNode->node);
          fcfsUeCb = (SchFcfsUeCb *)cell->ueCb[ueId-1].schSpcUeCb;
+         printf("\nwilfrid johnson INFO   -->  SCH: retx UE ID = %d scheduled on sfn = %d slot = %d", ueId, slotInd->sfn, slotInd->slot);
 
          /* If RAR is pending for this UE, schedule PDCCH,PDSCH to send RAR and 
           * PUSCH to receive MSG3 as per k0-k2 configuration*/
